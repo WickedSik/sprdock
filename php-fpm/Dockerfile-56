@@ -211,6 +211,16 @@ cd /tmp \
     && rm -f wkhtmltopdf.deb \
 ;fi
 
+#####################################
+# ImageMagick:
+#####################################
+
+ARG INSTALL_IMAGICK=false
+RUN if [ ${INSTALL_IMAGICK} = true ]; then \
+    apt-get update -yqq && \
+    apt-get install -y libmagickwand-dev imagemagick \
+;fi
+
 #
 #--------------------------------------------------------------------------
 # Final Touch
